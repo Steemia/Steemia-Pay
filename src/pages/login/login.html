@@ -1,0 +1,33 @@
+<ion-header id="header">
+
+  <ion-navbar color="primary">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 text-center>
+        <img width="20%" src="assets/icon.png" />
+        <p>Welcome</p>
+      </ion-col>
+      <ion-col col-12 text-center>
+        <button color="white" ion-button (click)="doLogin()">
+          <ion-icon name="cc-steem"></ion-icon>
+          &nbsp;&nbsp;Login via SC2
+        </button>
+      </ion-col>
+      <ion-col col-12 text-center>
+        <p text-center>
+          <a href="https://signup.steemit.com/?ref=steemia">
+            No acc.
+            <strong>Signup</strong>
+          </a>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

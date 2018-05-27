@@ -1,17 +1,136 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+
+  <ion-navbar color="primary">
+    <ion-title *ngIf="isLoggedIn == false">Steemia Pay</ion-title>
+      <ion-item  *ngIf="isLoggedIn == true" class="custom-item">
+        <ion-avatar item-start>
+          <img src="https://img.busy.org/@{{ user }}">
+        </ion-avatar>
+        <h2>@{{user}}</h2>
+      </ion-item>
+  </ion-navbar> 
+
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+
+  <ion-slides pager *ngIf="isLoggedIn == true">
+
+    <ion-slide>
+      <ion-card class='container'>
+        <ion-grid>
+        <ion-row>
+            <ion-col col-6>
+                <ion-card  (click)='presentBarcodeModal()' class='pay-card-2'>
+                    <ion-icon class="card-title" name="ios-download"></ion-icon>
+                  <div class="card-title"><span class="request">REQUEST MONEY</span></div>
+                  </ion-card>
+                </ion-col>  
+          
+          <ion-col col-6>
+          <ion-card (click)='showRadio()' class='pay-card-4'>
+            <ion-icon class="card-title" name="paper-plane"></ion-icon>
+            <div class="card-title">SEND MONEY</div>
+          </ion-card>
+          </ion-col>    
+      
+        </ion-row>  
+      </ion-grid>
+      </ion-card>
+    </ion-slide>
+    
+    <ion-slide>
+        <ion-card class='container'>
+            <ion-grid>
+            <ion-row>
+          
+                <ion-col col-6>
+                    <ion-card (click)='loadMoney()' class='pay-card-3'>
+                        <ion-icon class="card-title" name="cash"></ion-icon>
+                      <div class="card-title">LOAD MONEY</div>
+                      </ion-card>
+                    </ion-col>
+                    
+              
+              <ion-col col-6>
+              <ion-card (click)='scanCode()'  class='pay-card-1'>
+                <ion-icon class="card-title" name="qr-scanner"></ion-icon>
+                <div class="card-title">SCAN QR</div>
+              </ion-card>
+              </ion-col>    
+          
+            </ion-row>  
+          </ion-grid>
+          </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+      <ion-card class='pay-card' *ngIf="scanned_code">
+          <ion-list>
+
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="https://img.busy.org/@{{ scanned_code?.account }}">
+                </ion-avatar>
+                <h2>@{{ scanned_code?.account }}</h2>
+              </ion-item>
+
+              <ion-item>
+                  <ion-icon name="ios-card" item-start></ion-icon>
+                  {{ scanned_code?.amount }} {{ scanned_code?.wallet }}
+                </ion-item>
+
+              <ion-item>
+                  <ion-icon name="ios-cash" item-start></ion-icon>
+                  {{ scanned_code?.currency }}
+                </ion-item>
+
+              <ion-item *ngIf='scanned_code.memo'>
+                  <ion-icon name="ios-paper" item-start></ion-icon>
+                  {{ scanned_code?.memo }}
+              </ion-item>
+                  
+              <button (click)='cancel()' class="pay-button"  ion-button small round>CANCEL</button>
+              <button (click)='pay()' class="pay-button"  ion-button small round>PAY</button>
+
+           </ion-list>
+
+      </ion-card>
+
+<div *ngIf="!scanned_code">
+    <ion-card class='transfer-card' *ngFor="let transaction of transactions">
+        <ion-item item-start>
+          <ion-avatar item-start>
+            <img *ngIf="transaction[1].from != user" src="https://steemitimages.com/u/{{ transaction[1].from }}/avatar/small">
+            <img *ngIf="transaction[1].from === user" src="https://steemitimages.com/u/{{ transaction[1].to }}/avatar/small">
+          </ion-avatar>
+          <h2 *ngIf="transaction[1].from != user" class="incoming">+ {{ transaction[1].amount }}</h2>
+          <h2 *ngIf="transaction[1].from === user" class="outgoing">- {{ transaction[1].amount }}</h2>
+          <p *ngIf="transaction[1].from != user"> @{{ transaction[1].from }} </p>
+          <p *ngIf="transaction[1].from === user"> @{{ transaction[1].to }} </p>
+          <ion-note item-right> {{ transaction.timestamp | amTimeAgo }} </ion-note>
+        </ion-item>
+      </ion-card>      
+</div>
+
+  <button *ngIf="isLoggedIn == true && !scanned_code" ion-button round outline icon-end no-border color='light' class="load-more"  (click)='getMore()' >
+    <ion-spinner *ngIf="is_loading"></ion-spinner>
+    <span *ngIf="!is_loading">Load More</span>
+    <ion-icon  *ngIf="!is_loading" name="ios-arrow-down"></ion-icon>
+  </button>
+
+<ion-fab right bottom>
+  <button (click)='scanCode()' ion-fab color="dark"><ion-icon name="qr-scanner"></ion-icon></button>
+</ion-fab>
+
+
+<div *ngIf="isLoggedIn == false" class="vertical-align h-100">
+    <ion-card  id="not-logged" class="card custom-card">
+      <ion-card-content>
+        <p text-center> You need to log in to see this page</p>
+        <button ion-button block mode="ios" (click)="openPage('LoginPage')">Login Now!</button>
+      </ion-card-content>
+    </ion-card>
+</div>
+
 </ion-content>

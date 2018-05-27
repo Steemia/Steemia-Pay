@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar color='primary'>
+    <ion-buttons>
+      <button ion-button (tap)="dismiss()">
+        <ion-icon class="custom-close" name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-segment [(ngModel)]="wallet" (ngModelChange)="updateWalletValue($event)">
+        <ion-segment-button value="STEEM">
+          STEEM
+        </ion-segment-button>
+        <ion-segment-button value="SBD">
+          SBD
+        </ion-segment-button>
+      </ion-segment>
+  <ion-list inset>
+
+    <ion-item>
+        <ion-label>Amount</ion-label>
+        <ion-input placeholder="How much?" type="number"  [(ngModel)]='amount' (ngModelChange)="updateAmountValue($event)"></ion-input>
+        <ion-select item-right [(ngModel)]='currency' (ngModelChange)="updateCurrencyValue($event)">
+            <ion-option value="USD">USD</ion-option>
+            <ion-option value="EUR">EUR</ion-option>
+            <ion-option value="GBP">GBP</ion-option>
+            <ion-option value="JPY">JPY</ion-option>
+            <ion-option value="TRY">TRY</ion-option>
+            <ion-option value="KRW">KRW</ion-option>
+            <ion-option value="INR">INR</ion-option>
+            <ion-option value="IDR">IDR</ion-option>
+            <ion-option value="CNY">CNY</ion-option>
+            <ion-option value="NGN">NGN</ion-option>
+            <ion-option value="PLN">PLN</ion-option>
+            <ion-option value="AUD">AUD</ion-option>
+            <ion-option value="PHP">PHP</ion-option>
+            <ion-option value="MYR">MYR</ion-option>
+          </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Memo</ion-label>
+        <ion-textarea  [(ngModel)]='memo' (ngModelChange)="updateMemoValue($event)" placeholder="Leave a note..."></ion-textarea>
+      </ion-item>
+
+      <button *ngIf="!createdCode" class="qr-button" ion-button round outline (click)="createCode()">CREATE QR CODE</button>
+    </ion-list>
+
+  <ion-card *ngIf="created_code">
+    <ngx-qrcode [qrc-value]="created_code"></ngx-qrcode>
+  </ion-card>
+    
+</ion-content>

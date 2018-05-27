@@ -1,0 +1,44 @@
+page-barcode {
+    ion-list[inset] {
+        margin: 0px !important;
+
+        .item-input {
+            padding:0px 15px !important;
+        }
+    }
+
+    ion-item {
+        margin-top: 10px !important;
+        border-radius: 20px !important;
+    }
+
+    .item-inner {
+        border: none !important;
+    }
+
+    .qr-button {
+        left: 25%;
+        margin-top: 10px !important;
+    }
+
+    .segment-md .segment-button {
+        border-radius: 20px;
+        margin: 2px 5px;
+    }
+
+    .segment-button {
+        font-weight: bold;
+        color: #222222;
+        border-bottom: #488aff 1px solid !important;
+    }
+
+    .segment-activated {
+        background-color: #488aff !important;
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .card {
+        border-radius: 20px;
+    }
+}

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { SteemConnectProvider } from '../../providers/steemconnect/steemconnect';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
+import { WalletPage } from '../wallet/wallet';
+import { UserPage } from '../user/user';
+import { MapPage } from '../map/map';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -10,10 +12,11 @@ import { HomePage } from '../home/home';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab2Root = MapPage;
+  tab3Root = WalletPage;
+  tab4Root = UserPage;
 
-  constructor() {
+  constructor(private steemConnect: SteemConnectProvider) {
 
   }
 }

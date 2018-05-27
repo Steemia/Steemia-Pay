@@ -14,3 +14,18 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.tabs-md .tabbar {
+    height: 7%;
+}
+
+ion-avatar img, ion-thumbnail img {
+    border: 1px solid lightgray;
+}
+.content {
+    background: #f1f1f1;
+}
+
+.toolbar-title-ios, .toolbar-title-md {
+    text-align: center;
+}
