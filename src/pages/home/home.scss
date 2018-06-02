@@ -1,5 +1,21 @@
 page-home {
 
+	ion-content {
+		-webkit-animation: fadein 0.4s; /* Safari, Chrome and Opera > 12.1 */
+		   -moz-animation: fadein 0.4s; /* Firefox < 16 */
+			-ms-animation: fadein 0.4s; /* Internet Explorer */
+			 -o-animation: fadein 0.4s; /* Opera < 12.1 */
+				animation: fadein 0.4s;
+	}
+
+	.memo-show {
+        transition: 0.2s linear;
+	}
+	
+	.hidden {
+		height: 0 !important;
+	}
+
 	.item > ion-icon, .item-inner > ion-icon {
 		color: #000;
 		margin-left: 2.2% !important;
@@ -36,7 +52,6 @@ page-home {
 	.load-more {
 		text-align: center;
 		color: #488aff;
-		left: 30%;
 		border: none;
 		text-transform: initial;
 
@@ -63,18 +78,18 @@ page-home {
 		border-radius: 20px;
 		text-align: center;
 		padding: 20px;
-		background: #5f2c82;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to left, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #396afc !important;  /* fallback for old browsers */
+    	background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 
 	.pay-card-2 {
 		border-radius: 20px;
 		text-align: center;
 		padding: 20px;
-		background: #5f2c82;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to left, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #396afc !important;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 
 	.pay-card-3 {
@@ -82,9 +97,9 @@ page-home {
 		border-radius: 20px;
 		text-align: center;
 		padding: 20px;
-		background: #5f2c82;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to left, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #396afc !important;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 
 	.pay-card-4 {
@@ -92,9 +107,9 @@ page-home {
 		border-radius: 20px;
 		text-align: center;
 		padding: 20px;
-		background: #5f2c82;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to left, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #396afc !important;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 
 	.card-title {
@@ -163,7 +178,7 @@ page-home {
 		}
 
 		.custom-item {
-			background-color: blue;
+			background-color: #396afc;
 		}
 	}
 

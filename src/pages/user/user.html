@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
 
   <ion-navbar color='primary'>
     <ion-title>Settings</ion-title>
@@ -9,41 +9,37 @@
 
 <ion-content>
 
-    <div *ngIf="isLoggedIn == true">
-        <ion-card class="avatar-card">
-          <ion-card-content>
-            <ion-item>
-                <ion-avatar class="vertical-align">
-                    <img src="https://img.busy.org/@{{profile?.name}}" alt="">
-                  </ion-avatar>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-    </div>
+  <div>
+    <ion-card class="avatar-card header-card">
+      <ion-card-content>
+        <ion-item>
+          <ion-avatar class="vertical-align">
+            <img src="https://img.busy.org/@{{profile?.name}}" alt="">
+          </ion-avatar>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
-<ion-card class="options-card" *ngIf="isLoggedIn == true">
+  <ion-card class="options-card">
     <ion-list>
 
-        <ion-item>
-            <ion-icon name="ios-at"></ion-icon>
-            <a href="mailto:hsynterkr@gmail.com">Contact</a>
-        </ion-item>
-  
-        <ion-item>
-            <ion-icon name="paper-plane"></ion-icon>
-           <a href="http://steemit.com/@hsynterkr">Feedback</a>
-        </ion-item>
-  
-      </ion-list>
-</ion-card>
+      <ion-item>
+        <ion-icon name="ios-at"></ion-icon>
+        <a href="mailto:hsynterkr@gmail.com">Contact</a>
+      </ion-item>
 
-  <div *ngIf="isLoggedIn == false" class="vertical-align h-100">
-      <ion-card id="not-logged" class="card custom-card">
-        <ion-card-content>
-          <p text-center> You need to log in to see this page</p>
-          <button ion-button block mode="ios" (click)="openPage('LoginPage')">Login Now!</button>
-        </ion-card-content>
-      </ion-card>
-  </div>
+      <ion-item>
+        <ion-icon name="paper-plane"></ion-icon>
+        <a href="http://steemit.com/@hsynterkr">Feedback</a>
+      </ion-item>
+
+      <ion-item >
+        <ion-icon name="paper-plane"></ion-icon>
+        <span class="red-text">Logout</span>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
 
 </ion-content>

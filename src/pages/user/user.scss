@@ -1,4 +1,13 @@
 page-user {
+
+    ion-content {
+		-webkit-animation: fadein 0.4s; /* Safari, Chrome and Opera > 12.1 */
+		   -moz-animation: fadein 0.4s; /* Firefox < 16 */
+			-ms-animation: fadein 0.4s; /* Internet Explorer */
+			 -o-animation: fadein 0.4s; /* Opera < 12.1 */
+				animation: fadein 0.4s;
+    }
+    
     .vertical-align {
         margin: 0 auto;
         top: 50%;
@@ -19,6 +28,12 @@ page-user {
         border: 1px solid #e9e7e7;
     }
 
+    .header-card {
+        border-radius: 0 !important;
+        -webkit-box-shadow: 0none !important;
+        box-shadow: none !important;
+    }
+
     .avatar-card {
         margin: 0px;
         width: 100%;
@@ -28,9 +43,9 @@ page-user {
                 border: 2px solid lightgray;
             }
             .item-block {
-                background-color: blue;
+                background-color: #396afc;
             }
-        background-color: blue; 
+        background-color: #396afc; 
     }
 
     .options-card {
@@ -60,5 +75,9 @@ page-user {
     a:active {
         color: black;
         text-decoration: none;
+    }
+
+    .red-text {
+        color: red !important;
     }
 }
