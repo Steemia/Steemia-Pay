@@ -17,7 +17,7 @@ export class LoginPage {
   private doLogin() {
     this.steemConnect.login().then(res => {
       if (res === 'success') {
-        this.navCtrl.pop();
+        this.navCtrl.setRoot('TabsPage');
       }
     });
   }
